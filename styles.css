@@ -1,0 +1,244 @@
+:root {
+  --primary-blue: #5847eb;
+  --work-orange: #ff8c66;
+  --play-blue: #56c2e6;
+  --study-pink: #ff5c7c;
+  --exercise-green: #4acf81;
+  --social-violet: #7536d3;
+  --self-care-yellow: #f1c75b;
+  --very-dark-blue: #0f1424;
+  --dark-blue: #1c1f4a;
+  --desaturated-blue: #6f76c8;
+  --pale-blue: #bdc1ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+  background-color: var(--very-dark-blue);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 2rem;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  max-width: 1000px;
+  width: 90%;
+}
+
+.profile-card {
+  background-color: var(--dark-blue);
+  border-radius: 12px;
+  grid-row: span 2;
+}
+
+.profile-info {
+  background-color: var(--primary-blue);
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.profile-img {
+  width: 60px;
+  height: 60px;
+  border: 3px solid white;
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+}
+
+.profile-name {
+  font-size: 0.85rem;
+  color: var(--pale-blue);
+  margin-bottom: 0.4rem;
+}
+
+.profile-name h1 {
+  font-size: 2rem;
+  font-weight: 300;
+  color: white;
+}
+
+.time-select {
+  padding: 1.5rem;
+}
+
+.time-select button {
+  display: block;
+  background: none;
+  border: none;
+  color: var(--desaturated-blue);
+  font-size: 1.1rem;
+  margin: 1rem 0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.time-select button:hover,
+.time-select button.active {
+  color: white;
+}
+
+.tracking-card {
+  background-color: var(--dark-blue);
+  border-radius: 12px;
+  position: relative;
+  padding-top: 2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.tracking-card:hover {
+  transform: translateY(-5px);
+  background-color: hsl(235, 46%, 30%);
+}
+
+.tracking-card-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2rem;
+  border-radius: 12px 12px 0 0;
+  background-position: 90% -0.5rem;
+  background-repeat: no-repeat;
+  transition: transform 0.3s ease;
+}
+
+.tracking-card:hover .tracking-card-header {
+  transform: translateY(-2px);
+}
+
+.work .tracking-card-header {
+  background-color: var(--work-orange);
+}
+
+.play .tracking-card-header {
+  background-color: var(--play-blue);
+}
+
+.study .tracking-card-header {
+  background-color: var(--study-pink);
+}
+
+.exercise .tracking-card-header {
+  background-color: var(--exercise-green);
+}
+
+.social .tracking-card-header {
+  background-color: var(--social-violet);
+}
+
+.self-care .tracking-card-header {
+  background-color: var(--self-care-yellow);
+}
+
+.tracking-card-content {
+  padding: 1.25rem;
+}
+
+.card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.card-title h2 {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.ellipsis {
+  cursor: pointer;
+  color: var(--pale-blue);
+  transition: color 0.3s ease;
+}
+
+.ellipsis:hover {
+  color: white;
+}
+
+.hours {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-bottom: 0.4rem;
+}
+
+.previous {
+  color: var(--pale-blue);
+  font-size: 0.9rem;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background-color: var(--dark-blue);
+  text-align: center;
+  font-size: 0.9rem;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.attribution {
+  color: var(--pale-blue);
+}
+
+.attribution a {
+  color: var(--primary-blue);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.attribution a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+@media (max-width: 1024px) {
+  .dashboard {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .profile-card {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-card {
+    grid-column: span 1;
+  }
+
+  .profile-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .profile-img {
+    margin-bottom: 0;
+  }
+
+  .time-select {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+  }
+}
